@@ -32,9 +32,11 @@ $(function() {
          * and that the URL is not empty.
          */
          it('existe uma URL', function() {
+           var string = 'http\://'
            allFeeds.forEach(function(value, index) {
              expect(allFeeds[index].url).toBeDefined();
              expect(allFeeds[index].url).not.toBe(0);
+             expect(allFeeds[index].url).toMatch(string);
            });
          });
 
