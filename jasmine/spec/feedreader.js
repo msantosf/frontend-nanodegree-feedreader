@@ -34,8 +34,6 @@ $(function() {
          it('existe uma URL', function() {
            var string = 'http\://'
            allFeeds.forEach(function(value, index) {
-             expect(allFeeds[index].url).toBeDefined();
-             expect(allFeeds[index].url).not.toBe(0);
              expect(allFeeds[index].url).toMatch(string);
            });
          });
@@ -45,6 +43,12 @@ $(function() {
          * in the allFeeds object and ensures it has a name defined
          * and that the name is not empty.
          */
+         it('existe um nome', function () {
+           allFeeds.forEach(function(value, index) {
+             expect(allFeeds[index].name.length).not.toBe(0);
+             expect(typeof allFeeds[index].name).not.toBe('number');
+           });
+         });
     });
 
 
