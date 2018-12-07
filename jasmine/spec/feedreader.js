@@ -69,6 +69,13 @@ $(function() {
           * should have two expectations: does the menu display when
           * clicked and does it hide when clicked again.
           */
+
+          it('visibilidade do menu', function() {
+            const menu = $('body');
+            const menuIcon = $('.icon-list');
+            expect(menu.toggleClass()).toBeDefined(menuIcon.click());
+
+          });
     });
     /* TODO: Write a new test suite named "Initial Entries" */
 
