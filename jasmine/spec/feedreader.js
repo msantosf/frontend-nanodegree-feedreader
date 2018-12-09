@@ -22,8 +22,8 @@ $(function() {
          * page?
          */
         it('are defined', function() {
-            expect(allFeeds).toBeDefined();
-            expect(allFeeds.length).not.toBe(0);
+          expect(allFeeds).toBeDefined();
+          expect(allFeeds.length).not.toBe(0);
         });
 
 
@@ -31,24 +31,24 @@ $(function() {
          * in the allFeeds object and ensures it has a URL defined
          * and that the URL is not empty.
          */
-         it('existe uma URL', function() {
-           var string = 'http\://'
-           allFeeds.forEach(function(value, index) {
-             expect(allFeeds[index].url).toMatch(string);
-           });
-         });
+        it('existe uma URL', function() {
+          var string = 'http\://'
+          allFeeds.forEach(function(value, index) {
+            expect(allFeeds[index].url).toMatch(string);
+          });
+        });
 
 
         /* TODO: Write a test that loops through each feed
          * in the allFeeds object and ensures it has a name defined
          * and that the name is not empty.
          */
-         it('existe um nome', function () {
-           allFeeds.forEach(function(value, index) {
-             expect(allFeeds[index].name.length).not.toBe(0);
-             expect(typeof allFeeds[index].name).not.toBe('number');
-           });
-         });
+        it('existe um nome', function () {
+          allFeeds.forEach(function(value, index) {
+            expect(allFeeds[index].name.length).not.toBe(0);
+            expect(typeof allFeeds[index].name).not.toBe('number');
+          });
+        });
     });
 
 
@@ -60,9 +60,9 @@ $(function() {
          * the CSS to determine how we're performing the
          * hiding/showing of the menu element.
          */
-         it('Menu elemento esta oculto', function() {
-           expect(document.querySelector('.menu-hidden')).toBeTruthy();
-         });
+        it('Menu elemento esta oculto', function() {
+          expect(document.querySelector('.menu-hidden')).toBeTruthy();
+        });
 
          /* TODO: Write a test that ensures the menu changes
           * visibility when the menu icon is clicked. This test
@@ -70,15 +70,25 @@ $(function() {
           * clicked and does it hide when clicked again.
           */
 
-          it('visibilidade do menu', function() {
+        it('visibilidade do menu', function() {
           $('.menu-icon-link').click();
           expect($('body').hasClass('menu-hidden')).not.toBe(true);
           $('.menu-icon-link').click();
           expect($('body').hasClass('menu-hidden')).toBe(true);
-          });
+        });
     });
     /* TODO: Write a new test suite named "Initial Entries" */
+    describe('Entradas Inicias', function() {
+        beforeEach(function(done) {
+          loadFeed(0,done);
+        });
 
+        it('existe um elemento em .feed', function(done) {
+          var entrada = $('article');
+          expect(entrada.hasClass('entry')).toBeTruthy();
+          done();
+        });
+    });
         /* TODO: Write a test that ensures when the loadFeed
          * function is called and completes its work, there is at least
          * a single .entry element within the .feed container.
