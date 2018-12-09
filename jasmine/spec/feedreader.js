@@ -71,10 +71,10 @@ $(function() {
           */
 
           it('visibilidade do menu', function() {
-            const menu = $('body');
-            const menuIcon = $('.icon-list');
-            expect(menu.toggleClass()).toBeDefined(menuIcon.click());
-
+          $('.menu-icon-link').click();
+          expect($('body').hasClass('menu-hidden')).not.toBe(true);
+          $('.menu-icon-link').click();
+          expect($('body').hasClass('menu-hidden')).toBe(true);
           });
     });
     /* TODO: Write a new test suite named "Initial Entries" */
