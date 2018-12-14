@@ -32,6 +32,7 @@ $(function() {
          * and that the URL is not empty.
          */
         it('existe uma URL', function() {
+          // Cria-se uma variável armazenando uma String para comparação com a URL de allFeeds
           var string = 'http\://'
           allFeeds.forEach(function(value, index) {
             expect(allFeeds[index].url).toMatch(string);
@@ -44,6 +45,7 @@ $(function() {
          * and that the name is not empty.
          */
         it('existe um nome', function () {
+          // Garante-se que o nome não é vazio e não seja um número
           allFeeds.forEach(function(value, index) {
             expect(allFeeds[index].name.length).not.toBe(0);
             expect(typeof allFeeds[index].name).not.toBe('number');
@@ -61,6 +63,7 @@ $(function() {
          * hiding/showing of the menu element.
          */
         it('Menu elemento esta oculto', function() {
+          // Garante-se que o elemento está oculto tendo a classe menu.hidden
           expect(document.querySelector('.menu-hidden')).toBeTruthy();
         });
 
@@ -71,9 +74,13 @@ $(function() {
           */
 
         it('visibilidade do menu', function() {
+          // Engatilha-se o click
           $('.menu-icon-link').click();
+          // Verifica se após o click o body possui menu-hidden, fator que não pode ser verdadeiro no primeiro caso
           expect($('body').hasClass('menu-hidden')).not.toBe(true);
+          // Egantilha-se novamente outro click
           $('.menu-icon-link').click();
+          // Esperasse que após novo click o body possua a classe menu-hidden
           expect($('body').hasClass('menu-hidden')).toBe(true);
         });
     });
@@ -88,11 +95,13 @@ $(function() {
 
     describe('Entradas Inicias', function() {
         beforeEach(function(done) {
+          // Chama-se loadFeed com index 0 para carregar o conteúdo
           loadFeed(0,done);
         });
 
         it('existe um elemento em .feed', function(done) {
           var entrada = $('article');
+          // Testa-se se o artigo possui a classe entry, indicando assim que o conteúdo foi carregado
           expect(entrada.hasClass('entry')).toBeTruthy();
           done();
         });
@@ -111,13 +120,17 @@ $(function() {
         $('.feed').empty();
         //capturando primeiro feed
         loadFeed(0,function() {
+          // Ao chamar a loadFeed, atribuo a minha variavel o valor do feed da posição 0
           contAntigo = $('.feed').html();
+          // Chama-se loadFeed novamente passando outro index
           loadFeed(1, done());
         });
       });
 
       it('Mudança de feed', function() {
+        // Com o novo feed apontando para um novo index, atribuo minha variavel o valor do feed na posição 1
         contNovo = $('.feed').html();
+        // Testo se os conteúdos são iguais
         expect(contAntigo).not.toBe(contNovo);
       });
     });
