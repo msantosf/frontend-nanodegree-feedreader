@@ -50,9 +50,9 @@ Abrindo o arquivo com um de seus navegadores favoritos, poderá ver no rodapé d
 
 * Suíte _`'Entradas iniciais'`_
 
-Suíte de teste assíncrono que tem como o intuito a verificação se existe algum conteúdo de notícia dentro do container de feed.
+  Suíte de teste assíncrono que tem como o intuito a verificação se existe algum conteúdo de notícia dentro do container de feed.
 
-Para isso é utilizado o recurso do `beforeEach()` que tem  intuito carregar a função `loadFeed()` de `app.js`.
+  Para isso é utilizado o recurso do `beforeEach()` que tem  intuito carregar a função `loadFeed()` de `app.js`.
 
   * _`'existe um elemento em .feed'`_
 
@@ -60,15 +60,15 @@ Para isso é utilizado o recurso do `beforeEach()` que tem  intuito carregar a f
 
 * Suíte _`'Nova seleção de feed'`_
 
-Mais uma suíte de teste assíncrono. Tem como intuito verificar se os feeds carregados divergem entre si, e se por uma acaso não é o mesmo feed sendo carregado mais de uma vez.
+  Mais uma suíte de teste assíncrono. Tem como intuito verificar se os feeds carregados divergem entre si, e se por uma acaso não é o mesmo feed sendo carregado mais de uma vez.
 
-São utilizadas duas variáveis:
+  São utilizadas duas variáveis:
 
-`contAntigo` - conteúdo que armazena o primeiro feed carregado pela função `loadFeed()` .
+  `contAntigo` - conteúdo que armazena o primeiro feed carregado pela função `loadFeed()` .
 
-`contNovo` - conteúdo que armazana o segundo feed carregado pela função `loadFeed()` .
+  `contNovo` - conteúdo que armazana o segundo feed carregado pela função `loadFeed()` .
 
-Antes do teste em si, é utilizado o `beforeEach()` que chama `loadFeed()` duas vezes. Na primeira, o primeiro conteúdo é armazenado na variável `contAntigo` . Depois a função é chamada novamente para carregar o novo conteúdo no DOM.
+  Antes do teste em si, é utilizado o `beforeEach()` que chama `loadFeed()` duas vezes. Na primeira, o primeiro conteúdo é armazenado na variável `contAntigo` . Depois a função é chamada novamente para carregar o novo conteúdo no DOM.
 
   * _`'Mudança de feed'`_
 
